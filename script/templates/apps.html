@@ -1,0 +1,55 @@
+$def with(result)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="zuohaitao" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="/favicon.ico"/>
+<title>codepongo - app</title>
+<style>
+body {
+font-family: "Trebuchet MS",Verdana, Helvetica, Arial, sans-serif;
+font-size: 10pt;
+}
+.nav {
+margin: 0;
+font-size:2em;
+}
+a {
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div class="nav">
+<a href="http://codepongo.com/">home</a>|
+<a href="http://app.codepongo.com">app</a>|
+<a href="http://note.codepongo.com" target="_blank">note</a>|
+<a href="http://cook.codepongo.com" target="_blank">cook</a>|
+<a href="http://news.codepongo.com" target="_blank">news</a>|
+<a href="http://me.codepongo.com">me</a>
+</div>
+<div class="app">
+$for r in result:
+    <dl>
+    <dt>
+    <a href="$r['github']">$r['name'] (last update:$r['update_time'])</a>
+    </dt>
+    <dd>
+    $if r['url'] != '':
+        <a href="$r['url']">$r['description']</a>
+    $else:
+        $r['description']
+    </dd>
+    </dl>
+</div>
+<div id="foot">
+<b>(cc) BY-NC-SA</b><br/>Powered by <a href="https://github.com/codepongo/app">app</a><br/>Proudly NOT powered by WordPress or Jekyll
+</div>
+</body>
+</html>
+

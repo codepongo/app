@@ -5,6 +5,7 @@ sys.path.append(os.path.dirname(__file__))
 import web
 import datetime
 import useragent
+import whereisip
 
 urls = (
         '/', 'index',
@@ -12,6 +13,7 @@ urls = (
         '/(favicon.ico)', 'static',
         '/(.*.css)', 'static',
         '/whatsmyuseragent.*', 'useragent.useragent',
+        '/whereisip.*', 'where_is_ip'
 #        '/food', 'Food',
 )
 
@@ -33,6 +35,12 @@ class hi:
     def GET(self):
         return 'hi,world!'
 
+class where_is_ip:
+    def GET(self):
+        ip = web.ctx.env.get('REMOTE_ADDR')
+        nation = whereisip.ip2nation.nation(ip)
+        ip += ' - ' + str(nation[0][0])
+        return render.whereisip(ip)
 
 render = web.template.render(os.path.join(os.path.dirname(__file__), 'templates'))
 app = web.application(urls, globals())

@@ -21,7 +21,6 @@ def from_github():
             'zReader',
             'zvim',
             'zshellext',
-            'whereisip',
             'CNWeatherForecast',
             'bjfoodprice',
             'zjrssbucket',

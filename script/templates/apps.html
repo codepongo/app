@@ -11,6 +11,8 @@ $def with(result)
 body {
 font-family: "Trebuchet MS",Verdana, Helvetica, Arial, sans-serif;
 font-size: 10pt;
+width:600px;
+margin:1em;
 }
 .nav {
 margin: 0;
@@ -25,16 +27,16 @@ text-decoration: underline;
 </style>
 </head>
 <body>
-<div class="nav">
-<a href="http://codepongo.com/">home</a>|
-<a href="http://app.codepongo.com">app</a>|
-<a href="http://note.codepongo.com" target="_blank">note</a>|
-<a href="http://cook.codepongo.com" target="_blank">cook</a>|
-<a href="http://news.codepongo.com" target="_blank">news</a>|
-<a href="http://me.codepongo.com">me</a>
-</div>
 <div class="app">
-<dl><dt><a href="/whatsmyuseragent">whatsmyuseragent</a></dt><dd>web browser user agent</dd></dl>
+	<dl><dt>
+		<span style="float:left;margin-right:1em"><img src="/favicon.ico" /></span>
+		<a href="/whatsmyuseragent"></a>
+		<h2>whatsmyuseragent</h2>
+		<div>
+			<b>This Web App provides to detective your web browser's user agent.</b>
+			<p>A user agent is software (a software agent) that is acting on behalf of a user. In HTTP, the User-Agent string is often used for content negotiation, where the origin server selects suitable content or operating parameters for the response.</p>
+		</div>
+	</dt></dl>
 <dl><dt><a href="/whereisip">whereisip</a></dt><dd>ip to location</dd></dl>
 $for r in result:
     <dl>
@@ -48,6 +50,14 @@ $for r in result:
         $r['description']
     </dd>
     </dl>
+</div>
+<div class="nav">
+<a href="http://codepongo.com/">home</a>|
+<a href="http://app.codepongo.com">app</a>|
+<a href="http://note.codepongo.com" target="_blank">note</a>|
+<a href="http://cook.codepongo.com" target="_blank">cook</a>|
+<a href="http://news.codepongo.com" target="_blank">news</a>|
+<a href="http://me.codepongo.com">me</a>
 </div>
 <div id="foot">
 <b>(cc) BY-NC-SA</b><br/>Powered by <a href="https://github.com/codepongo/app">app</a><br/>Proudly NOT powered by WordPress or Jekyll

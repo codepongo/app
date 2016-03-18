@@ -28,7 +28,6 @@ class index:
                 'cook',
                 'blog',
                 'stbipy',
-                'diary',
                 'zjdict',
                 'weixin',
                 'imagresizer',
@@ -36,7 +35,6 @@ class index:
                 'aboutme',
                 'loudspeaker',
                 'zshellext',
-                'whereisip'
                 'zjruler',
                 'bjfoodprice',
                 'CNWeatherForecast',

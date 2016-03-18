@@ -12,16 +12,45 @@ urls = (
         '/hi', 'hi',
         '/(favicon.ico)', 'static',
         '/(.*.css)', 'static',
+        '/(.*.ico)', 'static',
+        '/(.*.png)', 'static',
         '/whatsmyuseragent.*', 'useragent.useragent',
         '/whereisip.*', 'where_is_ip'
-#        '/food', 'Food',
-)
+        #        '/food', 'Food',
+        )
 
 class index:
     def GET(self):
-        dbpath = os.path.join(os.path.join(os.path.dirname(__file__), 'storage'), 'app.db')
-        db = web.database(dbn='sqlite', db=dbpath)
-        return render.apps(db.select('app', order='update_time DESC'))
+        self.repos = [
+                'stockcalculator',
+                'doubanpachong',
+                'app',
+                'cook',
+                'blog',
+                'stbipy',
+                #            'diary',
+                #            'zjdict',
+                #            'weixin',
+                #            'imagresizer',
+                #            'resumerefresher',
+                #            'aboutme',
+                #            'loudspeaker',
+                #            'zshellext',
+                #            'whereisip'
+                #            'zjruler',
+                #            'bjfoodprice',
+                #            'CNWeatherForecast',
+        ]
+        briefs = []
+        path = os.path.join(os.path.dirname(__file__), 'storage')
+        for name in self.repos:
+            name = name + '.htm'
+            p = os.path.join(path, name)
+            print p
+            if os.path.isfile(p) and os.path.splitext(p)[1] == '.htm':
+                with open(os.path.join(p), 'rb') as f:
+                    briefs.append(f.read())
+        return render.apps(briefs)
 
 
 class static:

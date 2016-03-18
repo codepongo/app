@@ -1,4 +1,4 @@
-$def with(result)
+$def with(briefs)
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,36 +20,28 @@ font-size:2em;
 }
 a {
 text-decoration: none;
+color:blue
 }
 a:hover {
 text-decoration: underline;
+color:blue
+}
+.app img {
+	float:left;
+	margin-right:1em;
+}
+hr {
+	height:1px;
+	border:none;
+	border-top:1px solid #cccccc;
 }
 </style>
 </head>
 <body>
 <div class="app">
-	<dl><dt>
-		<span style="float:left;margin-right:1em"><img src="/favicon.ico" /></span>
-		<a href="/whatsmyuseragent"></a>
-		<h2>whatsmyuseragent</h2>
-		<div>
-			<b>This Web App provides to detective your web browser's user agent.</b>
-			<p>A user agent is software (a software agent) that is acting on behalf of a user. In HTTP, the User-Agent string is often used for content negotiation, where the origin server selects suitable content or operating parameters for the response.</p>
-		</div>
-	</dt></dl>
-<dl><dt><a href="/whereisip">whereisip</a></dt><dd>ip to location</dd></dl>
-$for r in result:
-    <dl>
-    <dt>
-    <a href="$r['github']">$r['name'] (last update:$r['update_time'])</a>
-    </dt>
-    <dd>
-    $if r['url'] != '':
-        <a href="$r['url']">$r['description']</a>
-    $else:
-        $r['description']
-    </dd>
-    </dl>
+$for brief in briefs:
+	<div>$:brief</div>
+	<hr />
 </div>
 <div class="nav">
 <a href="http://codepongo.com/">home</a>|

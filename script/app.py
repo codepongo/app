@@ -28,25 +28,24 @@ class index:
                 'cook',
                 'blog',
                 'stbipy',
-                #            'diary',
-                #            'zjdict',
-                #            'weixin',
-                #            'imagresizer',
-                #            'resumerefresher',
-                #            'aboutme',
-                #            'loudspeaker',
-                #            'zshellext',
-                #            'whereisip'
-                #            'zjruler',
-                #            'bjfoodprice',
-                #            'CNWeatherForecast',
+                'diary',
+                'zjdict',
+                'weixin',
+                'imagresizer',
+                'resumerefresher',
+                'aboutme',
+                'loudspeaker',
+                'zshellext',
+                'whereisip'
+                'zjruler',
+                'bjfoodprice',
+                'CNWeatherForecast',
         ]
         briefs = []
         path = os.path.join(os.path.dirname(__file__), 'storage')
         for name in self.repos:
             name = name + '.htm'
             p = os.path.join(path, name)
-            print p
             if os.path.isfile(p) and os.path.splitext(p)[1] == '.htm':
                 with open(os.path.join(p), 'rb') as f:
                     briefs.append(f.read())

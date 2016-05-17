@@ -6,6 +6,7 @@ import web
 import datetime
 import useragent
 import whereisip
+import weather
 
 urls = (
         '/', 'index',
@@ -15,7 +16,8 @@ urls = (
         '/(.*.ico)', 'static',
         '/(.*.png)', 'static',
         '/whatsmyuseragent.*', 'useragent.useragent',
-        '/whereisip.*', 'where_is_ip'
+        '/whereisip.*', 'where_is_ip',
+        '/weather.*', 'weather.broadcast',
         #        '/food', 'Food',
         )
 

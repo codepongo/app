@@ -1,0 +1,82 @@
+$def with(w)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="zuohaitao" />
+<link href="weui.min.css" type="text/css" rel="stylesheet" />
+</head>
+<style>
+.hd {
+	padding: 2em 0;
+}
+body {
+	background-color:#fbf9fe;
+}
+h1 {
+	text-align: center;
+}
+</style>
+<body>
+<div class="hd">
+<h1>$w['data']['weather']['content']['city']</h1>
+</div>
+$ today = w['data']['weather']['content']['today']
+<div class="weui_cells_title">
+$today['date']
+</div>
+<div class="weui_cells">
+<div class="weui_cell">
+<div class="weui_cell_db weui_cell_primary">
+<p>天气：$today['condition']</p>
+</div>
+</div>
+<div class="weui_cell">
+<div class="weui_cell_db weui_cell_primary">
+<p>风力：$today['wind']</p>
+</div>
+</div>
+<div class="weui_cell">
+<div class="weui_cell_db weui_cell_primary">
+<p>温度：$today['temp']</p>
+</div>
+</div>
+<div class="weui_cell">
+<div class="weui_cell_db weui_cell_primary">
+<p>PM2.5：$today['pm25']</p>
+</div>
+</div>
+</div>
+$ tomorrow = w['data']['weather']['content']['tomorrow']
+<div class="weui_cells_title">
+$tomorrow['date']
+</div>
+<div class="weui_cells">
+<div class="weui_cell">
+<div class="weui_cell_db weui_cell_primary">
+<p>天气：$tomorrow['condition']</p>
+</div>
+</div>
+<div class="weui_cell">
+<div class="weui_cell_db weui_cell_primary">
+<p>风力：$tomorrow['wind']</p>
+</div>
+</div>
+<div class="weui_cell">
+<div class="weui_cell_db weui_cell_primary">
+<p>气温：$tomorrow['temp']</p>
+</div>
+</div>
+</div>
+</div>
+<form class="weui_cells weui_cells_form" action="/weather" method="POST">
+<div class="weui_cell">
+<input name="city" class="weui_input" type="text" placeholder="输入城市名称，查询天气情况">
+</div>
+<div class="weui_cell">
+<input class="weui_btn weui_btn_primary" type="submit" value="查天气">
+</div>
+</form>
+</body>
+</html>
+

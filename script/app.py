@@ -39,7 +39,6 @@ class index:
                 'zshellext',
                 'zjruler',
                 'bjfoodprice',
-                'cnweatherforecast',
         ]
         briefs = []
         path = os.path.join(os.path.dirname(__file__), 'storage')

@@ -33,10 +33,10 @@ def baidu(where=''):
     }
     if not info['data']['weather'].has_key('content'):
         return r
-    r['location'] = info['data']['weather']['content']['city'],
-    r['date'] = today['date']
+    r['location'] = info['data']['weather']['content']['city']
     today = info['data']['weather']['content']['today']
     tomorrow = info['data']['weather']['content']['tomorrow']
+    r['date'] = today['date']
     r['today']['weather'] = today['condition']
     r['today']['wind'] = today['wind']
     r['today']['temp'] = today['temp']
@@ -70,6 +70,8 @@ def baiduapi(where):
             }
     }
     info = json.loads(urllib.urlopen(url).read())
+    if info.has_key('error') and info['error'] != 0:
+        return r
     now = info['results'][0]['weather_data'][0]['date']
     temp = info['results'][0]['weather_data'][0]['temperature'] + now[now.find('('):]
     index = ''

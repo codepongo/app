@@ -7,7 +7,7 @@ $def with(w)
 <meta name="author" content="zuohaitao" />
 <link href="weui.min.css" type="text/css" rel="stylesheet" />
 <link rel="shortcut icon" href="/favicon.ico"/>
-<title>CodePongo - $w['data']['weather']['content']['city']天气</title>
+<title>CodePongo - $w['location']天气</title>
 </head>
 <style>
 .hd {
@@ -22,52 +22,55 @@ h1 {
 </style>
 <body>
 <div class="hd">
-<h1>$w['data']['weather']['content']['city']</h1>
+<h1>$w['location']</h1>
 </div>
-$ today = w['data']['weather']['content']['today']
 <div class="weui_cells_title">
-$today['date']
+$w['date']
 </div>
 <div class="weui_cells">
 <div class="weui_cell">
 <div class="weui_cell_db weui_cell_primary">
-<p>天气：$today['condition']</p>
+<p>天气：$w['today']['weather']</p>
 </div>
 </div>
 <div class="weui_cell">
 <div class="weui_cell_db weui_cell_primary">
-<p>风力：$today['wind']</p>
+<p>风力：$w['today']['wind']</p>
 </div>
 </div>
 <div class="weui_cell">
 <div class="weui_cell_db weui_cell_primary">
-<p>温度：$today['temp']</p>
+<p>温度：$w['today']['temp']</p>
 </div>
 </div>
 <div class="weui_cell">
 <div class="weui_cell_db weui_cell_primary">
-<p>PM2.5：$today['pm25']</p>
+<p>PM2.5：$w['today']['pm25']</p>
+</div>
+</div>
+<div class="weui_cell">
+<div class="weui_cell_db weui_cell_primary">
+<p>生活指数：$w['today']['index']</p>
 </div>
 </div>
 </div>
-$ tomorrow = w['data']['weather']['content']['tomorrow']
 <div class="weui_cells_title">
-$tomorrow['date']
+$w['tomorrow']['date']
 </div>
 <div class="weui_cells">
 <div class="weui_cell">
 <div class="weui_cell_db weui_cell_primary">
-<p>天气：$tomorrow['condition']</p>
+<p>天气：$w['tomorrow']['weather']</p>
 </div>
 </div>
 <div class="weui_cell">
 <div class="weui_cell_db weui_cell_primary">
-<p>风力：$tomorrow['wind']</p>
+<p>风力：$w['tomorrow']['wind']</p>
 </div>
 </div>
 <div class="weui_cell">
 <div class="weui_cell_db weui_cell_primary">
-<p>气温：$tomorrow['temp']</p>
+<p>气温：$w['tomorrow']['temp']</p>
 </div>
 </div>
 </div>
